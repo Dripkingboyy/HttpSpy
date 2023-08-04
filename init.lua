@@ -169,15 +169,7 @@ if syn and syn.websocket then
     end);
 end
 
-for method, enabled in Pairs(methods) do
-    if enabled then
-        local b;
-        b = hookfunction(game[method], newcclosure(function(self, ...) 
-            printf("game.%s(game, %s)\n\n", method, Serializer.FormatArguments(...));
-            return b(self, ...);
-        end));
-    end;
-end;
+
 
 if not debug.info(2, "f") then
     pconsole("You are running an outdated version, please use the loadstring at https://github.com/NotDSF/HttpSpy\n");
